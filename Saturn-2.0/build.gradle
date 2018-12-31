@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'war'
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.org.akhikhl.gretty:gretty:2.0.0"
+  }
+}
+ 
+apply plugin: "org.akhikhl.gretty"
+repositories {
+	jcenter()
+}
+ 
+dependencies {
+	compile group: 'org.json', name: 'json', version: '20180813'
+	providedCompile 'javax.servlet:servlet-api:2.5',
+					'javax.servlet.jsp:jsp-api:2.1'
+	runtime 'javax.servlet:jstl:1.1.2',
+			'taglibs:standard:1.1.2',
+			'mysql:mysql-connector-java:8.0.13'
+	testCompile 'junit:junit:4.12'
+}

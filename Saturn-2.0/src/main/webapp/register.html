@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Item Recommendation">
+  <meta name="author" content="Your Name">
+  <title>Item Recommendation Final</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="scripts/jquery-3.3.1.js"></script>
+  <script src="https://rawgit.com/emn178/js-md5/master/build/md5.min.js"></script>
+  <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+  <script src="scripts/registration.js?version=2"></script>
+</head>
+<body>
+  <header class="top-header">
+    <nav class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="#">Contact</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <header>
+      <p>
+        <span>Item</span>
+        <br /> Recommendation
+      </p>
+    </header>
+
+    <section class="main-section">
+      <div id="login-form">
+        <label for="username">Username:</label>
+        <input id="username" name="username" type="text" size=100 required="required">
+        <span id="username_msg"></span>
+        <label for="password">Password:</label>
+        <input id="password" name="password" type="password" size=100 required="required">
+        <span id="password_msg"></span>
+        <label for="confirmed_password">Confirm Password:</label>
+        <input id="confirmed_password" name="confirmed_password" type="password" size=100 required="required">
+        <span id="confirmed_password_msg"></span>
+        <label for="firstName">First Name:</label>
+        <input id="firstName" name="firstName" type="text" size=255 required="required">
+        <span id="firstName_msg"></span>
+        <label for="lastName">Last Name:</label>
+        <input id="lastName" name="lastName" type="text" size="2" required="required">
+        <span id="lastName_msg"></span>
+        <button id="sign_up-btn" disabled="disabled">Sign Up</button>
+        <p id="login-error"></p>
+      </div>
+    </section>
+  </div>
+  
+  <footer>
+    <p class="title">What We Do</p>
+    <p>"Help you find the best place around."</p>
+    <ul>
+      <li>
+        <p><i class="fa fa-map-o fa-2x"></i></p>
+        <p>LaiOffer office, CA</p>
+      </li>
+      <li>
+        <p><i class="fa fa-envelope-o fa-2x"></i></p>
+        <p>info@laioffer.com</p>
+      </li>
+      <li>
+        <p><i class="fa fa-phone fa-2x"></i></p>
+        <p>+1 800 123 456</p>
+      </li>
+    </ul>
+  </footer>
+  
+  
+  
+  <!-- ><script src="scripts/main.js?version=1"></script>-->
+  
+</body>
+</html>
