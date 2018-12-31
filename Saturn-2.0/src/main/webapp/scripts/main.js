@@ -408,16 +408,6 @@
   
   function showSlides() {
 	  var images = new Array(
-			               /*"http://folkartcarsi.com/img/4.jpg",
-			  			   "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/11/chocolate_cake.jpg?itok=s7oiyPuG&fc=50,50",//"https://thumbs-prod.si-cdn.com/cAU0hdDob45w_75sItCT68WXbZQ=/800x600/filters:no_upscale()/https://public-media.si-cdn.com/filer/c5/d1/c5d13e71-f316-4b68-ac23-99b6384f4792/istock-602301816.jpg",//"http://folkartcarsi.com/images/modify/galeri/emirgan/big/1.png",
-			               "http://folkartcarsi.com/images/modify/galeri/emirgan/big/3.png",
-			               "https://usatthebiglead.files.wordpress.com/2018/08/gettyimages-1019054818.jpg?w=1000&h=600&crop=1?w=1000&crop=0",//"https://cdn2.vox-cdn.com/thumbor/Joaxrmbt2AqpZlsH8RPRlH_5aSM=/0x376:3597x2399/1100x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/55486613/GettyImages-634583072.0.jpg",//"http://www.sportsonearth.com/assets/images/0/1/0/213106010/cuts/rodsoe_h2tz0qqf_l1m5qwnq.jpg",//"https://ichef.bbci.co.uk/images/ic/480xn/p06jb0m6.jpg",
-			               "https://musicoomph.com/wp-content/uploads/2018/03/benefits-of-going-to-live-music-concerts.jpg",
-			               "https://kottke.org/plus/misc/images/astronomy-photo-2017-03.jpg",
-			               //"http://www.relativelyinteresting.com/wp-content/uploads/2016/07/astronomy-for-kids-and-families.jpg",
-			               "https://fashionista.com/.image/t_share/MTU4Mjg0OTk0MTIzNDA4ODAy/victorias-secret-first-time-walkers.jpg",//"https://media.vogue.in/wp-content/uploads/2017/10/Victoria’s-Secret-Fashion-Show-2017-what-we-know-so-far.jpg",//"https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2017/03/screen_shot_2017-03-09_at_11.16.32_am.jpg",//"https://imgix.bustle.com/rehost/2016/9/13/f840b1ad-3f73-4fa9-9a27-422a7d65cd47.jpg",//"https://mojeh.com/wp-content/uploads/2018/09/GettyImages-876910704-1600x1000.jpg",//"https://fashionista.com/.image/t_share/MTU1MDA5MTYzMjQyNTEzNzcy/gettyimages-925089548.jpg",//"http://www.xinhuanet.com/fashion/2018-09/19/1123450716_15373168481381n.jpg",//"http://world.people.com.cn/NMediaFile/2018/0209/MAIN201802091233000315723585709.jpg",//"http://upload.art.ifeng.com/2017/1019/1508380809438.jpg",//"http://footage.framepool.com/shotimg/qf/985379608-伦敦时装周-高级时装-时装表演-时尚女装.jpg",
-			               "https://watchesworld.com.mx/wp-content/uploads/2015/12/IMG_1418.jpg",
-			               "https://comiviajeros.com/wp-content/uploads/2018/08/20161019_190255-1170x668.jpg"*/
 			  			   "images/header_image_1.jpg",
 			  			   "images/header_image_2.jpg",
 			  		       "images/header_image_3.jpg",
