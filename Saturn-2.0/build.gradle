@@ -15,7 +15,12 @@ apply plugin: "org.akhikhl.gretty"
 repositories {
 	jcenter()
 }
- 
+
+war {
+    archiveName 'Saturn-2.0.war'
+    from 'Saturn-2.0/build/dist' /*war file will be created in Saturn-2.0/build/libs*/
+}
+
 dependencies {
 	compile group: 'org.json', name: 'json', version: '20180813'
 	providedCompile 'javax.servlet:servlet-api:2.5',

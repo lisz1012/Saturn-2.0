@@ -2,17 +2,21 @@ package rpc;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import db.category.CategoryDao;
+import db.category.CategoryDaoFactory;
 import db.favorite.FavoriteDao;
 import db.favorite.FavoriteDaoFactory;
 import entity.Item;
@@ -24,9 +28,12 @@ import utils.WebPrinter;
 @WebServlet("/history")
 public class FavoriteItem extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static final FavoriteDao FAVORITE_DAO = FavoriteDaoFactory.get();
     private static final String RESULT_NAME = "result";
     private static final String RESULT_CODE_SUCCESS = "SUCCESS";
+    
+    private FavoriteDao favoriteDao = FavoriteDaoFactory.get();
+    
+    private CategoryDao categoryDao = CategoryDaoFactory.get();
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -41,16 +48,19 @@ public class FavoriteItem extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String user_id = request.getParameter("user_id");
-		List<Item> favoriteItems = FAVORITE_DAO.getFavoriteItems(user_id);
+		List<Item> favoriteItems = favoriteDao.getFavoriteItems(user_id);
 		JSONArray array = new JSONArray();
 		for (Item item : favoriteItems) {
 			JSONObject object = item.toJSONObject();
 			try {
 				object.put("favorite", true);
+				Set<String> categories = categoryDao.getCategory(item.getId());
+				object.put("categories", categories);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
 			array.put(object);
+			System.out.println(object);
 		}
 
 		WebPrinter.printJSONArray(response, array);
@@ -66,7 +76,7 @@ public class FavoriteItem extends HttpServlet {
 			JSONArray array = input.getJSONArray("favorite");
 			for (int i = 0; i < array.length(); i++) {
 				String itemId = array.getString(i);
-				FAVORITE_DAO.addFavorite(userId, itemId);
+				favoriteDao.addFavorite(userId, itemId);
 			}
 			JSONObject object = new JSONObject();
 			object.put(RESULT_NAME, RESULT_CODE_SUCCESS);
@@ -86,7 +96,7 @@ public class FavoriteItem extends HttpServlet {
 			JSONArray array = input.getJSONArray("favorite");
 			for (int i = 0; i < array.length(); i++) {
 				String itemId = array.getString(i);
-				FAVORITE_DAO.deleteFavorite(userId, itemId);
+				favoriteDao.deleteFavorite(userId, itemId);
 			}
 			JSONObject object = new JSONObject();
 			object.put(RESULT_NAME, RESULT_CODE_SUCCESS);
