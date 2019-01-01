@@ -31,7 +31,7 @@ public class Login extends HttpServlet {
 	private static final String STATUS_NAME = "status";
 	// After how many seconds if the client has no interaction with 
 	// server side the session will be terminated.
-	private static final int MAX_INACTIVE_INTERVAL = 15;
+	private static final int MAX_INACTIVE_INTERVAL = 1800;
 	
 	private UserDao userDao = UserDaoFactory.get();
        
