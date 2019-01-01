@@ -20,6 +20,7 @@ import db.category.CategoryDaoFactory;
 import db.favorite.FavoriteDao;
 import db.favorite.FavoriteDaoFactory;
 import entity.Item;
+import utils.HttpCode;
 import utils.WebPrinter;
 
 /**
@@ -47,6 +48,12 @@ public class FavoriteItem extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session == null) {
+			response.setStatus(HttpCode.NO_AUTH.value());
+			return;
+		}
+		
 		String user_id = request.getParameter("user_id");
 		List<Item> favoriteItems = favoriteDao.getFavoriteItems(user_id);
 		JSONArray array = new JSONArray();
@@ -60,7 +67,6 @@ public class FavoriteItem extends HttpServlet {
 				e.printStackTrace();
 			}
 			array.put(object);
-			System.out.println(object);
 		}
 
 		WebPrinter.printJSONArray(response, array);
@@ -70,6 +76,12 @@ public class FavoriteItem extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session == null) {
+			response.setStatus(HttpCode.NO_AUTH.value());
+			return;
+		}
+		
 		JSONObject input = WebPrinter.readJSONObject(request);
 		try {
 			String userId = input.getString("user_id");

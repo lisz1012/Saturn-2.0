@@ -307,7 +307,8 @@
       },
       // failed callback
       function() {
-        showErrorMessage('Cannot load nearby items.');
+        showErrorMessage('Cannot load nearby items or session has been expired, please ' +
+      		  '<a href="index.html">Login</a> again.');
       }
     );
   }
@@ -337,7 +338,8 @@
         listItems(items);
       }
     }, function() {
-      showErrorMessage('Cannot load favorite items.');
+      showErrorMessage('Cannot load favorite items or session has been expired, please ' +
+    		  '<a href="index.html">Login</a> again.');
     });
   }
 
@@ -361,7 +363,8 @@
       function(res) {
         var items = JSON.parse(res);
         if (!items || items.length === 0) {
-          showWarningMessage('No recommended item. Make sure you have favorites.');
+          showWarningMessage('No recommended item. Make sure you have favorites or session has been expired, please ' +
+        		  '<a href="index.html">Login</a> again.');
         } else {
           listItems(items);
         }

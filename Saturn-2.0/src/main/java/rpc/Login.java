@@ -23,13 +23,15 @@ import utils.WebPrinter;
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	
 	private static final String USER_ID_KEY = "user_id";
 	private static final String PASSWORD_KEY = "password";
 	private static final String FULL_NAME_KEY = "name";
 	private static final String STATUS_CODE_OK = "OK";
 	private static final String STATUS_CODE_FAIL = "FAIL";
 	private static final String STATUS_NAME = "status";
+	// After how many seconds if the client has no interaction with 
+	// server side the session will be terminated.
+	private static final int MAX_INACTIVE_INTERVAL = 15;
 	
 	private UserDao userDao = UserDaoFactory.get();
        
@@ -74,7 +76,7 @@ public class Login extends HttpServlet {
 			User user = null;
 			if ((user = userDao.getUser(userId, password)) != null) {
 				HttpSession session = request.getSession();
-				session.setMaxInactiveInterval(3600);
+				session.setMaxInactiveInterval(MAX_INACTIVE_INTERVAL);
 				session.setAttribute(USER_ID_KEY, userId);
 				session.setAttribute(FULL_NAME_KEY, user.getFirstName() + " " + user.getLastName());
 				result.put(STATUS_NAME, STATUS_CODE_OK)
